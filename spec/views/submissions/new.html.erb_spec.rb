@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'submissions/new' do
-  let(:submission) do
+  let :submission do
     Submission.new(
       html:                '<div class="h-card">Test</div>',
       base_url:            'https://example.com',

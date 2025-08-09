@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'submissions/show' do
-  let(:submission) do
+  let :submission do
     Submission.create!(
       html:                'MyText',
       base_url:            'MyText',
