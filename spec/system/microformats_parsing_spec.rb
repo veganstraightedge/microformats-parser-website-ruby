@@ -38,7 +38,7 @@ RSpec.describe 'Microformats parsing' do
     expect(page).to have_content 'Submission was successfully created'
   end
 
-  it 'shows form validation when trying to save empty HTML' do
+  it 'parses empty HTML and shows empty results' do
     visit '/'
 
     within 'form[action="/submissions"]' do
