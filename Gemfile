@@ -11,22 +11,14 @@ gem 'pg'
 # webserver
 gem 'puma'
 
-# webserver
+# parser
 gem 'microformats'
 
 # assets
 gem 'autoprefixer-rails'
 gem 'bootstrap'
-gem 'jquery-rails'
 gem 'sass-rails'
 gem 'uglifier'
-
-# For codestyle guide and linting
-gem 'rubocop', require: false
-gem 'rubocop-factory_bot'
-gem 'rubocop-rails'
-gem 'rubocop-rspec'
-gem 'rubocop-rspec_rails'
 
 # dev and testing
 group :development, :test do
@@ -37,16 +29,18 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'spring-commands-rspec'
+
+  # For codestyle guide and linting
+  gem 'rubocop', require: false
+  gem 'rubocop-factory_bot'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'rubocop-rspec_rails'
 end
 
 # dev
 group :development do
-  gem 'listen'
-  gem 'spring'
-  gem 'spring-watcher-listen'
   gem 'web-console'
-
   # For measuring page/code performance
   gem 'rack-mini-profiler'
 
