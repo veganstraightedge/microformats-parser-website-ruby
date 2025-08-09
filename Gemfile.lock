@@ -85,11 +85,6 @@ GEM
     drb (2.2.3)
     erb (5.0.2)
     erubi (1.13.1)
-    factory_bot (6.5.4)
-      activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.0)
-      factory_bot (~> 6.5)
-      railties (>= 6.1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -244,9 +239,6 @@ GEM
     rubocop-ast (1.46.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
-    rubocop-factory_bot (2.27.1)
-      lint_roller (~> 1.1)
-      rubocop (~> 1.72, >= 1.72.1)
     rubocop-rails (2.32.0)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
@@ -291,7 +283,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  factory_bot_rails
   microformats
   pg
   puma
@@ -299,7 +290,6 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   rubocop
-  rubocop-factory_bot
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
