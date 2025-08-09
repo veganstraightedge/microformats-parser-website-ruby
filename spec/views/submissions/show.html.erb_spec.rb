@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'submissions/show' do
-  before do
-    @submission = assign :submission, Submission.create!(
+  let(:submission) do
+    Submission.create!(
       html:                'MyText',
       base_url:            'MyText',
       save_html:           false,
@@ -10,11 +10,15 @@ RSpec.describe 'submissions/show' do
     )
   end
 
+  before do
+    assign :submission, submission
+  end
+
   it 'renders attributes in <p>' do
     render
     doc = Nokogiri::HTML rendered
 
-    form = doc.css("form[action='#{submission_path(@submission.id)}'][method='post']")
+    form = doc.css("form[action='#{submission_path(submission.id)}'][method='post']")
     expect(form).to be_present
 
     html_textarea = form.css('textarea[name="submission[html]"]')

@@ -1,13 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'submissions/new' do
-  before do
-    @submission = assign :submission, Submission.new(
+  let(:submission) do
+    Submission.new(
       html:                '<div class="h-card">Test</div>',
       base_url:            'https://example.com',
       save_html:           false,
       render_html_in_page: false
     )
+  end
+
+  before do
+    assign :submission, submission
     allow(view).to receive(:on_results_page?).and_return false
   end
 
