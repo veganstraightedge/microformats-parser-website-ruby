@@ -22,11 +22,6 @@ RSpec/InstanceVariable:
   Exclude:
     - "spec/views/submissions/show.html.erb_spec.rb"
 
-# Offense count: 1
-Rails/I18nLocaleTexts:
-  Exclude:
-    - "app/controllers/submissions_controller.rb"
-
 # Offense count: 2
 # Configuration parameters: Include.
 # Include: db/**/*.rb

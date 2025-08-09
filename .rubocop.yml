@@ -23,6 +23,9 @@ Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
