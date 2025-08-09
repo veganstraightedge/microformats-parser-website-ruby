@@ -2,12 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'submissions/show' do
   let :submission do
-    Submission.create!(
-      html:                'MyText',
-      base_url:            'MyText',
-      save_html:           false,
-      render_html_in_page: false
-    )
+    Submission.create! html:                'MyText',
+                       base_url:            'MyText',
+                       save_html:           false,
+                       render_html_in_page: false
   end
 
   before do

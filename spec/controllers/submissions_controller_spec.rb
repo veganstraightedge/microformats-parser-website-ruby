@@ -27,7 +27,7 @@ RSpec.describe SubmissionsController do
   # This should return the minimal set of attributes required to create a valid
   # Submission. As you add validations to Submission, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) do
+  let :valid_attributes do
     {
       html:                '<a href="https://aaronparecki.com" class="h-card">@aaronpk</a>',
       base_url:            'https://aaronparecki.com',
@@ -36,7 +36,7 @@ RSpec.describe SubmissionsController do
     }
   end
 
-  let(:invalid_attributes) do
+  let :invalid_attributes do
     {
       html:     nil,
       base_url: nil
