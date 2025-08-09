@@ -1,13 +1,13 @@
-<%= render "form", submission: @submission %>
+<%= render @submission %>
 
 <% if @submission.render_html_in_page? %>
-<div class="card mb-5">
-  <div class="card-header">
-    Rendered HTML
-  </div>
+  <div class='card mb-5'>
+    <div class='card-header'>
+      Rendered HTML
+    </div>
 
-  <div class="card-block">
-    <%= simple_format @submission.html %>
+    <div class='card-body pb-0'>
+      <%= simple_format @submission.html %>
+    </div>
   </div>
-</div>
 <% end %>

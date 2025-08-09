@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
     <title>Ruby Microformats Parser</title>
     <%= csrf_meta_tags %>
+    <%= bootstrap_stylesheet_link_tag %>
 
-    <%= stylesheet_link_tag "application", media: "all" %>
+    <!-- auto-switch Bootstrap between light and dark mode -->
+    <script>
+      // set theme to the viewer's preferred color scheme
+      function updateTheme() {
+        const colorMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.querySelector('html').setAttribute('data-bs-theme', colorMode);
+      }
+
+      // set theme on load
+      updateTheme()
+
+      // update theme when the preferred scheme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
+    </script>
   </head>
 
   <body>
-    <main class="container">
-
+    <main class='container'>
       <% if notice.present? %>
-        <div class="alert alert-info mt-5" role="alert">
+        <div class='alert alert-info mt-5' role='alert'>
           <%= notice %>
         </div>
       <% end %>
 
-      <h1 class="mt-5 mb-3">
-        <%= link_to_unless_current "Microformats Parser (Ruby) #{Microformats::VERSION}", root_path %>
+      <h1 class='mt-5 mb-3'>
+        <%= link_to_unless_current 'Microformats Parser', :root %>
+        <small class='fw-light'>(Ruby) <%= Microformats::VERSION %></small>
       </h1>
 
       <%= yield %>
 
-      <footer class="mb-5">
+      <footer class='mb-5'>
         <ul>
-          <li><a href="https://microformats.io">About Microformats</a></li>
-          <li><a href="https://github.com/indieweb/microformats-ruby-parser-website">Source code for this website</a></li>
-          <li><a href="https://github.com/indieweb/microformats-ruby">Source code for the Microformats Ruby Parser</a></li>
+          <li><%= link_to 'About Microformats',                           'https://microformats.io' %></li>
+          <li><%= link_to 'Source code for this website',                 'https://github.com/indieweb/microformats-ruby-parser-website' %></li>
+          <li><%= link_to 'Source code for the Microformats Ruby Parser', 'https://github.com/indieweb/microformats-ruby' %></li>
           <li>
             Other Microformats Parser websites:
-            <a href="https://php.microformats.io">PHP</a>,
-            <a href="https://node.microformats.io">Node</a>,
-            <a href="https://python.microformats.io">Python</a>,
-            <a href="https://go.microformats.io">Go</a>
+            <%= link_to 'Go',     'https://go.microformats.io' %>,
+            <%= link_to 'Node',   'https://node.microformats.io' %>,
+            <%= link_to 'PHP',    'https://php.microformats.io' %>,
+            <%= link_to 'Python', 'https://python.microformats.io' %> and,
+            <%= link_to 'Rust',   'https://rust.microformats.io' %>
           </li>
         </ul>
       </footer>
-
     </main>
   </body>
 </html>

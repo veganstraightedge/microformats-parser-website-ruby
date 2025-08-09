@@ -1,0 +1,60 @@
+<%= form_with model: submission, class: 'mb-5' do |form| %>
+  <% if submission.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(submission.errors.count, 'error') %> prohibited this submission from being saved:</h2>
+
+      <ul>
+        <% submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='mb-3'>
+    <%= form.label     :html, :HTML %>
+    <%= form.text_area :html,
+                       id:       :submission_html,
+                       class:    'form-control form-control-lg font-monospace',
+                       rows:     6,
+                       disabled: on_results_page?,
+                       readonly: on_results_page? %>
+  </div>
+
+  <div class='mb-3'>
+    <%= form.label     :base_url, 'Base URL' %>
+    <%= form.url_field :base_url,
+                       id:       :submission_base_url,
+                       class:    'form-control form-control-lg font-monospace',
+                       disabled: on_results_page?,
+                       readonly: on_results_page? %>
+  </div>
+
+  <% if on_results_page? %>
+    <div class='mb-3'>
+      <%= form.label     :json, :JSON %>
+      <%= form.text_area :json,
+                         id:       :submission_json,
+                         class:    'form-control form-control-lg font-monospace',
+                         rows:     10,
+                         disabled: true,
+                         readonly: true %>
+    </div>
+  <% end %>
+
+  <% unless on_results_page? %>
+    <div class='mb-3'>
+      <div class='form-check'>
+        <%= form.check_box :save_html, id: :submission_save_html, class: 'form-check-input' %>
+        <%= form.label     :save_html, 'Save HTML?', for: :submission_save_html %>
+      </div>
+
+      <div class='form-check'>
+        <%= form.check_box :render_html_in_page, id: :submission_render_html_in_page, class: 'form-check-input' %>
+        <%= form.label     :render_html_in_page, 'Render HTML in Page?', for: :submission_render_html_in_page %>
+      </div>
+    </div>
+
+    <%= form.submit 'Parse', class: 'btn btn-lg btn-success' %>
+  <% end %>
+<% end %>

@@ -1,10 +1,9 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_to_root, only: [:index, :edit, :update, :destroy]
 
   # GET /submissions
-  def index
-    redirect_to new_submission_path
-  end
+  def index; end
 
   # GET /submissions/1
   def show; end
@@ -15,9 +14,7 @@ class SubmissionsController < ApplicationController
   end
 
   # GET /submissions/1/edit
-  def edit
-    redirect_to new_submission_path
-  end
+  def edit; end
 
   # POST /submissions
   def create
@@ -40,20 +37,20 @@ class SubmissionsController < ApplicationController
   end
 
   # PATCH/PUT /submissions/1
-  def update
-    redirect_to new_submission_path
-  end
+  def update; end
 
   # DELETE /submissions/1
-  def destroy
-    redirect_to new_submission_path
-  end
+  def destroy; end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_submission
     @submission = Submission.find(params[:id])
+  end
+
+  def redirect_to_root
+    redirect_to root_path
   end
 
   # Only allow a trusted parameter "white list" through.
