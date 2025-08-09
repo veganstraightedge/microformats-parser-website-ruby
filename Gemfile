@@ -16,11 +16,14 @@ gem 'microformats'
 
 # dev and testing
 group :development, :test do
+  gem 'capybara'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
 
   # For codestyle guide and linting
   gem 'rubocop',             require: false
+  gem 'rubocop-capybara',    require: false
   gem 'rubocop-rails',       require: false
   gem 'rubocop-rspec',       require: false
   gem 'rubocop-rspec_rails', require: false
