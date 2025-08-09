@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2017_05_16_194159) do
     t.text "json"
     t.boolean "save_html"
     t.boolean "render_html_in_page"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 end
