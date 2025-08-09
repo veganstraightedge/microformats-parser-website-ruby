@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-ruby '3.2.2'
+
+ruby file: '.ruby-version'
 
 # app server
-gem 'rails', '~> 5.2.0'
+gem 'rails'
 
 # database
 gem 'pg'
@@ -11,7 +12,7 @@ gem 'pg'
 gem 'puma'
 
 # webserver
-gem 'microformats', '~> 4.0.7'
+gem 'microformats'
 
 # assets
 gem 'autoprefixer-rails'
@@ -38,9 +39,9 @@ end
 
 # dev
 group :development do
-  gem 'listen', '~> 3.1.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   gem 'web-console'
 
   # For measuring page/code performance
@@ -56,4 +57,4 @@ group :development do
 end
 
 # windows dev
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:windows, :jruby]
