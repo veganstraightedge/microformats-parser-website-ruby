@@ -29,4 +29,4 @@ group :development, :test do
 end
 
 # windows dev
-gem 'tzinfo-data', platforms: [:windows, :jruby]
+gem 'tzinfo-data', platforms: %i[windows jruby]

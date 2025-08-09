@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_to_root, only: [:index, :edit, :update, :destroy]
+  before_action :set_submission,   only: %i[show edit update destroy]
+  before_action :redirect_to_root, only: %i[index edit update destroy]
 
   # GET /submissions
   def index; end
@@ -55,6 +55,6 @@ class SubmissionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def submission_params
-    params.expect(submission: [:url, :html, :base_url, :save_html, :render_html_in_page])
+    params.expect submission: %i[url html base_url save_html render_html_in_page]
   end
 end
