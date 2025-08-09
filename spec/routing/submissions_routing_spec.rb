@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SubmissionsController, type: :routing do
+RSpec.describe SubmissionsController do
   describe 'routing' do
     it 'routes to #index' do
       expect(get: '/submissions').to route_to('submissions#index')

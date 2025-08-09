@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MicroformatsController, type: :controller do
+RSpec.describe MicroformatsController do
   describe 'GET #show' do
     it 'returns http redirect' do
       get :show

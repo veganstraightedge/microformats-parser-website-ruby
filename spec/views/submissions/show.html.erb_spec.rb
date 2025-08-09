@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'submissions/show', type: :view do
+RSpec.describe 'submissions/show' do
   before do
     @submission = assign(:submission, Submission.create!(
                                         html: 'MyText',
