@@ -12,13 +12,18 @@ RSpec.describe 'submissions/show' do
 
   it 'renders attributes in <p>' do
     render
+    doc = Nokogiri::HTML(rendered)
 
-    assert_select 'form[action=?][method=?]', submission_path(@submission.id), 'post' do
-      assert_select 'textarea[name=?]', 'submission[html]'
+    form = doc.css("form[action='#{submission_path(@submission.id)}'][method='post']")
+    expect(form).to be_present
 
-      assert_select 'input[name=?][value=?]', 'submission[base_url]', 'MyText'
+    html_textarea = form.css('textarea[name="submission[html]"]')
+    expect(html_textarea).to be_present
 
-      assert_select 'textarea[name=?]', 'submission[json]'
-    end
+    base_url_input = form.css('input[name="submission[base_url]"][value="MyText"]')
+    expect(base_url_input).to be_present
+
+    json_textarea = form.css('textarea[name="submission[json]"]')
+    expect(json_textarea).to be_present
   end
 end
