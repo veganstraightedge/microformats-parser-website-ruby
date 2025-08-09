@@ -49,13 +49,6 @@ Style/Documentation:
     - "config/application.rb"
     - "db/migrate/20170516194159_create_submissions.rb"
 
-# Offense count: 47
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/GlobalStdStream:
