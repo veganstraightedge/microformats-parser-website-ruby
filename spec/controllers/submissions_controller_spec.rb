@@ -141,7 +141,7 @@ RSpec.describe SubmissionsController do
       submission = Submission.create! valid_attributes
       expect do
         delete :destroy, params: { id: submission.to_param }, session: valid_session
-      end.to change(Submission, :count).by(0)
+      end.not_to change(Submission, :count)
       expect(response).to redirect_to(root_path)
     end
   end

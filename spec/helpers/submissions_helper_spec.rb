@@ -10,7 +10,3 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SubmissionsHelper do
-  # This helper module is currently empty, so no tests are needed
-  # If methods are added to this helper in the future, add corresponding tests here
-end
