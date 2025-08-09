@@ -11,5 +11,6 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe MicroformatsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # This helper module is currently empty, so no tests are needed
+  # If methods are added to this helper in the future, add corresponding tests here
 end

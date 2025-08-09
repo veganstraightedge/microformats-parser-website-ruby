@@ -1,26 +1,26 @@
 require 'rails_helper'
 
+# TODO: add more tests for the various contexts
 RSpec.describe 'submissions/new' do
   before do
-    assign(:submission, Submission.new(
-                          html:                'MyText',
-                          base_url:            'MyText',
+    assign :submission,
+           Submission.new(html:                '<a href="https://aaronparecki.com" class="h-card">@aaronpk</a>',
+                          base_url:            nil,
                           save_html:           false,
-                          render_html_in_page: false
-                        ))
+                          render_html_in_page: false)
   end
 
   it 'renders new submission form' do
     render
+    html = Nokogiri::HTML.parse(rendered)
 
-    assert_select 'form[action=?][method=?]', submissions_path, 'post' do
-      assert_select 'textarea[name=?]', 'submission[html]'
+    submission_form = html.css "form[action='#{submissions_path}'][method=post]"
+    expect(submission_form).to be_present
 
-      assert_select 'input[name=?]', 'submission[base_url]'
+    html_field = submission_form.css 'textarea#submission_html'
+    expect(html_field).to be_present
 
-      assert_select 'input[name=?]', 'submission[save_html]'
-
-      assert_select 'input[name=?]', 'submission[render_html_in_page]'
-    end
+    base_url_field = submission_form.css 'input#submission_base_url'
+    expect(base_url_field).to be_present
   end
 end

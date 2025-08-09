@@ -14,5 +14,8 @@ module MicroformatsRubyParserWebsite
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Fix deprecation warning for timezone handling in Rails 8.1
+    config.active_support.to_time_preserves_timezone = :zone
   end
 end

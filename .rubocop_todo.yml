@@ -8,13 +8,6 @@
 
 # Offense count: 2
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
-Metrics/MethodLength:
-  Max: 15
-
-# Offense count: 2
-# Configuration parameters: CountAsOne.
-RSpec/ExampleLength:
-  Max: 7
 
 # Offense count: 1
 # Configuration parameters: AssignmentOnly.

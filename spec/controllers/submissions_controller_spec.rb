@@ -28,11 +28,19 @@ RSpec.describe SubmissionsController do
   # Submission. As you add validations to Submission, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      html:                '<a href="https://aaronparecki.com" class="h-card">@aaronpk</a>',
+      base_url:            'https://aaronparecki.com',
+      save_html:           true,
+      render_html_in_page: true
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      html:     nil,
+      base_url: nil
+    }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -41,10 +49,10 @@ RSpec.describe SubmissionsController do
   let(:valid_session) { {} }
 
   describe 'GET #index' do
-    it 'returns a success response' do
+    it 'redirects to root' do
       Submission.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(response).to redirect_to(root_path)
     end
   end
 
@@ -52,22 +60,25 @@ RSpec.describe SubmissionsController do
     it 'returns a success response' do
       submission = Submission.create! valid_attributes
       get :show, params: { id: submission.to_param }, session: valid_session
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
   describe 'GET #new' do
     it 'returns a success response' do
       get :new, params: {}, session: valid_session
-      expect(response).to be_success
+
+      # binding.irb
+
+      expect(response).to be_successful
     end
   end
 
   describe 'GET #edit' do
-    it 'returns a success response' do
+    it 'redirects to root' do
       submission = Submission.create! valid_attributes
       get :edit, params: { id: submission.to_param }, session: valid_session
-      expect(response).to be_success
+      expect(response).to redirect_to(root_path)
     end
   end
 
@@ -86,54 +97,52 @@ RSpec.describe SubmissionsController do
     end
 
     context 'with invalid params' do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { submission: invalid_attributes }, session: valid_session
-        expect(response).to be_success
+      it 'renders the show template when save_html is false' do
+        invalid_attrs_without_save_html = invalid_attributes.merge(save_html: false)
+        post :create, params: { submission: invalid_attrs_without_save_html }, session: valid_session
+        expect(response).to be_successful
+        expect(response).to render_template(:show)
+      end
+
+      it 'redirects to submission when save_html is true (no model validations exist)' do
+        invalid_attrs_with_save_html = invalid_attributes.merge(save_html: true)
+        post :create, params: { submission: invalid_attrs_with_save_html }, session: valid_session
+        expect(response).to redirect_to(Submission.last)
       end
     end
   end
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested submission' do
+      it 'redirects to root without updating' do
         submission = Submission.create! valid_attributes
-        put :update, params: { id: submission.to_param, submission: new_attributes }, session: valid_session
-        submission.reload
-        skip('Add assertions for updated state')
+        put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
+        expect(response).to redirect_to(root_path)
       end
 
       it 'redirects to the submission' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(submission)
+        expect(response).to redirect_to(root_path)
       end
     end
 
     context 'with invalid params' do
-      it "returns a success response (i.e. to display the 'edit' template)" do
+      it 'redirects to root' do
         submission = Submission.create! valid_attributes
-        put :update, params: { id: submission.to_param, submission: invalid_attributes }, session: valid_session
-        expect(response).to be_success
+        put :update, params: { id: submission.to_param, submission: {} }, session: valid_session
+        expect(response).to redirect_to(root_path)
       end
     end
   end
 
   describe 'DELETE #destroy' do
-    it 'destroys the requested submission' do
+    it 'redirects to root without destroying' do
       submission = Submission.create! valid_attributes
       expect do
         delete :destroy, params: { id: submission.to_param }, session: valid_session
-      end.to change(Submission, :count).by(-1)
-    end
-
-    it 'redirects to the submissions list' do
-      submission = Submission.create! valid_attributes
-      delete :destroy, params: { id: submission.to_param }, session: valid_session
-      expect(response).to redirect_to(submissions_url)
+      end.to change(Submission, :count).by(0)
+      expect(response).to redirect_to(root_path)
     end
   end
 end
