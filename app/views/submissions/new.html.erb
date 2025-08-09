@@ -1,5 +1,5 @@
 <%= form_with url: :microformats, method: :get, class: 'mb-5', enforce_utf8: false do |form| %>
-  <div class='mb-3'>
+  <div class="mb-3">
     <%= form.label     :url, 'Enter a URL' %>
     <%= form.url_field :url,
                        id:          :submission_url,
@@ -10,5 +10,5 @@
   <%= form.submit :Parse, class: 'btn btn-lg btn-success', name: nil %>
 <% end %>
 
-<h2 class='h4 fw-normal'>OR parse just a snippet of HTML</h2>
+<h2 class="h4 fw-normal">OR parse just a snippet of HTML</h2>
 <%= render @submission %>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ruby Microformats Parser</title>
     <%= csrf_meta_tags %>
     <%= bootstrap_stylesheet_link_tag %>
@@ -24,21 +24,21 @@
   </head>
 
   <body>
-    <main class='container'>
+    <main class="container">
       <% if notice.present? %>
-        <div class='alert alert-info mt-5' role='alert'>
+        <div class="alert alert-info mt-5" role="alert">
           <%= notice %>
         </div>
       <% end %>
 
-      <h1 class='mt-5 mb-3'>
+      <h1 class="mt-5 mb-3">
         <%= link_to_unless_current 'Microformats Parser', :root %>
-        <small class='fw-light'>(Ruby) <%= Microformats::VERSION %></small>
+        <small class="fw-light">(Ruby) <%= Microformats::VERSION %></small>
       </h1>
 
       <%= yield %>
 
-      <footer class='mb-5'>
+      <footer class="mb-5">
         <ul>
           <li><%= link_to 'About Microformats',                           'https://microformats.io' %></li>
           <li><%= link_to 'Source code for this website',                 'https://github.com/indieweb/microformats-ruby-parser-website' %></li>

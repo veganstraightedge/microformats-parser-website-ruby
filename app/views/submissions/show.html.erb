@@ -1,12 +1,12 @@
 <%= render @submission %>
 
 <% if @submission.render_html_in_page? %>
-  <div class='card mb-5'>
-    <div class='card-header'>
+  <div class="card mb-5">
+    <div class="card-header">
       Rendered HTML
     </div>
 
-    <div class='card-body pb-0'>
+    <div class="card-body pb-0">
       <%= simple_format @submission.html %>
     </div>
   </div>
