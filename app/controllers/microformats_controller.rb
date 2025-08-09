@@ -9,7 +9,7 @@ class MicroformatsController < ApplicationController
       results[:debug] = {
         package: 'https://rubygems.org/gems/microformats',
         version: Microformats::VERSION,
-        note: [
+        note:    [
           'This output was generated from the microformats-ruby gem available at https://github.com/indieweb/microformats-ruby',
           'Please file any issues with the parser at https://github.com/indieweb/microformats-rubygems/issues'
         ]

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'submissions/new' do
   before do
     assign(:submission, Submission.new(
-                          html: 'MyText',
-                          base_url: 'MyText',
-                          save_html: false,
+                          html:                'MyText',
+                          base_url:            'MyText',
+                          save_html:           false,
                           render_html_in_page: false
                         ))
   end
