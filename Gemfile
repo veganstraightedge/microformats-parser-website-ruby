@@ -23,9 +23,9 @@ gem 'uglifier'
 
 # For codestyle guide and linting
 gem 'rubocop', require: false
-gem 'rubocop-rspec'
-gem 'rubocop-rails'
 gem 'rubocop-factory_bot'
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
 
 # dev and testing
 group :development, :test do
