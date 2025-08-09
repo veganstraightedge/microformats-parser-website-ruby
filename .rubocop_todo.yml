@@ -27,14 +27,6 @@ Rails/I18nLocaleTexts:
   Exclude:
     - "app/controllers/submissions_controller.rb"
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: Include.
-# Include: **/app/controllers/**/*.rb
-Rails/StrongParametersExpect:
-  Exclude:
-    - "app/controllers/submissions_controller.rb"
-
 # Offense count: 2
 # Configuration parameters: Include.
 # Include: db/**/*.rb

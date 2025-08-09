@@ -58,6 +58,6 @@ class SubmissionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def submission_params
-    params.require(:submission).permit(:url, :html, :base_url, :save_html, :render_html_in_page)
+    params.expect(submission: [:url, :html, :base_url, :save_html, :render_html_in_page])
   end
 end
