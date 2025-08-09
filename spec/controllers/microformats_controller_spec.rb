@@ -4,7 +4,7 @@ RSpec.describe MicroformatsController do
   describe 'GET #show' do
     it 'returns http redirect' do
       get :show
-      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to :root
     end
   end
 end
