@@ -14,43 +14,18 @@ gem 'puma'
 # parser
 gem 'microformats'
 
-# assets
-gem 'autoprefixer-rails'
-gem 'bootstrap'
-gem 'sass-rails'
-gem 'uglifier'
-
 # dev and testing
 group :development, :test do
-  gem 'byebug', platform: :mri
   gem 'factory_bot_rails'
-  gem 'guard-rspec'
-  gem 'nokogiri'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'simplecov', require: false
 
   # For codestyle guide and linting
-  gem 'rubocop', require: false
-  gem 'rubocop-factory_bot'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
-  gem 'rubocop-rspec_rails'
-end
-
-# dev
-group :development do
-  gem 'web-console'
-  # For measuring page/code performance
-  gem 'rack-mini-profiler'
-
-  # For memory profiling
-  gem 'memory_profiler'
-
-  # For call-stack profiling flamegraphs
-  gem 'fast_stack'
-  gem 'flamegraph'
-  gem 'stackprof'
+  gem 'rubocop',             require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-rails',       require: false
+  gem 'rubocop-rspec',       require: false
+  gem 'rubocop-rspec_rails', require: false
 end
 
 # windows dev
