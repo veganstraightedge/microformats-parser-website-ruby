@@ -33,18 +33,3 @@ Rails/I18nLocaleTexts:
 Rails/ThreeStateBooleanColumn:
   Exclude:
     - "db/migrate/20170516194159_create_submissions.rb"
-
-# Offense count: 10
-# Configuration parameters: AllowedConstants.
-Style/Documentation:
-  Exclude:
-    - "app/controllers/application_controller.rb"
-    - "app/controllers/microformats_controller.rb"
-    - "app/controllers/submissions_controller.rb"
-    - "app/helpers/application_helper.rb"
-    - "app/helpers/microformats_helper.rb"
-    - "app/helpers/submissions_helper.rb"
-    - "app/mailers/application_mailer.rb"
-    - "app/models/application_record.rb"
-    - "config/application.rb"
-    - "db/migrate/20170516194159_create_submissions.rb"
