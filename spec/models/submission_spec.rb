@@ -12,6 +12,6 @@ RSpec.describe Submission do
   end
 
   it 'belongs to ActiveRecord' do
-    expect(described_class.superclass).to eq(ApplicationRecord)
+    expect(described_class.superclass).to eq ApplicationRecord
   end
 end

@@ -52,7 +52,7 @@ RSpec.describe SubmissionsController do
     it 'redirects to root' do
       Submission.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to root_path
     end
   end
 
@@ -78,7 +78,7 @@ RSpec.describe SubmissionsController do
     it 'redirects to root' do
       submission = Submission.create! valid_attributes
       get :edit, params: { id: submission.to_param }, session: valid_session
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to root_path
     end
   end
 
@@ -87,12 +87,12 @@ RSpec.describe SubmissionsController do
       it 'creates a new Submission' do
         expect do
           post :create, params: { submission: valid_attributes }, session: valid_session
-        end.to change(Submission, :count).by(1)
+        end.to change(Submission, :count).by 1
       end
 
       it 'redirects to the created submission' do
         post :create, params: { submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Submission.last)
+        expect(response).to redirect_to Submission.last
       end
     end
 
@@ -101,13 +101,13 @@ RSpec.describe SubmissionsController do
         invalid_attrs_without_save_html = invalid_attributes.merge(save_html: false)
         post :create, params: { submission: invalid_attrs_without_save_html }, session: valid_session
         expect(response).to be_successful
-        expect(response).to render_template(:show)
+        expect(response).to render_template :show
       end
 
       it 'redirects to submission when save_html is true (no model validations exist)' do
         invalid_attrs_with_save_html = invalid_attributes.merge(save_html: true)
         post :create, params: { submission: invalid_attrs_with_save_html }, session: valid_session
-        expect(response).to redirect_to(Submission.last)
+        expect(response).to redirect_to Submission.last
       end
     end
   end
@@ -117,13 +117,13 @@ RSpec.describe SubmissionsController do
       it 'redirects to root without updating' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to root_path
       end
 
       it 'redirects to the submission' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe SubmissionsController do
       it 'redirects to root' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: {} }, session: valid_session
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to root_path
       end
     end
   end
@@ -142,7 +142,7 @@ RSpec.describe SubmissionsController do
       expect do
         delete :destroy, params: { id: submission.to_param }, session: valid_session
       end.not_to change(Submission, :count)
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to root_path
     end
   end
 end

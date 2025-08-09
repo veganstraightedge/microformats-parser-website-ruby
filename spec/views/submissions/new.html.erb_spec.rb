@@ -2,18 +2,18 @@ require 'rails_helper'
 
 RSpec.describe 'submissions/new' do
   before do
-    @submission = assign(:submission, Submission.new(
-                                        html:                '<div class="h-card">Test</div>',
-                                        base_url:            'https://example.com',
-                                        save_html:           false,
-                                        render_html_in_page: false
-                                      ))
-    allow(view).to receive(:on_results_page?).and_return(false)
+    @submission = assign :submission, Submission.new(
+      html:                '<div class="h-card">Test</div>',
+      base_url:            'https://example.com',
+      save_html:           false,
+      render_html_in_page: false
+    )
+    allow(view).to receive(:on_results_page?).and_return false
   end
 
   it 'renders the URL parsing form' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     form = doc.css("form[action='#{microformats_path}'][method='get']")
     expect(form).to be_present
@@ -27,7 +27,7 @@ RSpec.describe 'submissions/new' do
 
   it 'renders the HTML snippet form' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     form = doc.css("form[action='#{submissions_path}'][method='post']")
     expect(form).to be_present
@@ -41,7 +41,7 @@ RSpec.describe 'submissions/new' do
 
   it 'renders form controls for HTML snippet form' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     save_html_checkbox = doc.css('input#submission_save_html[type="checkbox"]')
     expect(save_html_checkbox).to be_present
@@ -55,26 +55,26 @@ RSpec.describe 'submissions/new' do
 
   it 'renders labels for form fields' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
-    expect(doc.css('label').text).to include('Enter a URL')
-    expect(doc.css('label').text).to include('HTML')
-    expect(doc.css('label').text).to include('Base URL')
-    expect(doc.css('label[for="submission_save_html"]').text).to include('Save HTML?')
-    expect(doc.css('label[for="submission_render_html_in_page"]').text).to include('Render HTML in Page?')
+    expect(doc.css('label').text).to include 'Enter a URL'
+    expect(doc.css('label').text).to include 'HTML'
+    expect(doc.css('label').text).to include 'Base URL'
+    expect(doc.css('label[for="submission_save_html"]').text).to include 'Save HTML?'
+    expect(doc.css('label[for="submission_render_html_in_page"]').text).to include 'Render HTML in Page?'
   end
 
   it 'displays the section heading' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     heading = doc.css('h2')
-    expect(heading.text).to include('OR parse just a snippet of HTML')
+    expect(heading.text).to include 'OR parse just a snippet of HTML'
   end
 
   it 'does not render JSON field on new form' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     json_textarea = doc.css('textarea#submission_json')
     expect(json_textarea).to be_empty
@@ -82,7 +82,7 @@ RSpec.describe 'submissions/new' do
 
   it 'renders form fields as enabled (not disabled)' do
     render
-    doc = Nokogiri::HTML(rendered)
+    doc = Nokogiri::HTML rendered
 
     html_textarea = doc.css('textarea#submission_html[disabled]')
     expect(html_textarea).to be_empty
