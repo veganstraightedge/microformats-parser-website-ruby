@@ -114,13 +114,7 @@ RSpec.describe SubmissionsController do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      it 'redirects to root without updating' do
-        submission = Submission.create! valid_attributes
-        put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to :root
-      end
-
-      it 'redirects to the submission' do
+      it 'redirects to root' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
         expect(response).to redirect_to :root
