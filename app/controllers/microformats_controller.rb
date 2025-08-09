@@ -17,7 +17,7 @@ class MicroformatsController < ApplicationController
 
       render json: JSON.pretty_generate(results)
     else
-      redirect_to new_submission_path
+      redirect_to %i[new submission]
     end
   end
 end

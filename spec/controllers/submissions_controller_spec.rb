@@ -52,7 +52,7 @@ RSpec.describe SubmissionsController do
     it 'redirects to root' do
       Submission.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to :root
     end
   end
 
@@ -78,7 +78,7 @@ RSpec.describe SubmissionsController do
     it 'redirects to root' do
       submission = Submission.create! valid_attributes
       get :edit, params: { id: submission.to_param }, session: valid_session
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to :root
     end
   end
 
@@ -117,13 +117,13 @@ RSpec.describe SubmissionsController do
       it 'redirects to root without updating' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to :root
       end
 
       it 'redirects to the submission' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: valid_attributes }, session: valid_session
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to :root
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe SubmissionsController do
       it 'redirects to root' do
         submission = Submission.create! valid_attributes
         put :update, params: { id: submission.to_param, submission: {} }, session: valid_session
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to :root
       end
     end
   end
@@ -142,7 +142,7 @@ RSpec.describe SubmissionsController do
       expect do
         delete :destroy, params: { id: submission.to_param }, session: valid_session
       end.not_to change(Submission, :count)
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to :root
     end
   end
 end

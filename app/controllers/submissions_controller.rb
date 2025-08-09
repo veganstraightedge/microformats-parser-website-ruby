@@ -50,7 +50,7 @@ class SubmissionsController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to root_path
+    redirect_to :root
   end
 
   # Only allow a trusted parameter "white list" through.
