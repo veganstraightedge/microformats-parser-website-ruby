@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # From: https://getbootstrap.com/docs/5.3/getting-started/download/#cdn-via-jsdelivr
   BOOTSTRAP_VERSION       = '5.3.7'.freeze
   BOOTSTRAP_CSS_INTEGRITY = 'sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr'.freeze
 
