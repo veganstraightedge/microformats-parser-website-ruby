@@ -16,6 +16,8 @@ gem 'microformats'
 
 # dev and testing
 group :development, :test do
+  gem 'brakeman', require: false
+  gem 'erb_lint', require: false
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'rspec-rails'

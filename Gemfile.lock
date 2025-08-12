@@ -77,7 +77,16 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.4.1)
+    better_html (2.1.1)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.2.2)
+    brakeman (7.1.0)
+      racc
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -95,6 +104,13 @@ GEM
     diff-lcs (1.6.2)
     drb (2.2.3)
     erb (5.0.2)
+    erb_lint (0.9.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop (>= 1)
+      smart_properties
     erubi (1.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -278,6 +294,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    smart_properties (1.17.0)
     stringio (3.1.7)
     thor (1.4.0)
     timeout (0.4.3)
@@ -310,7 +327,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  brakeman
   capybara
+  erb_lint
   microformats
   pg
   puma

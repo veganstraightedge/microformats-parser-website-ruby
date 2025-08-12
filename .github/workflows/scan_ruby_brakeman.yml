@@ -1,0 +1,19 @@
+on: [push]
+
+name: Scan Ruby, Brakeman
+
+jobs:
+  scan_ruby:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          bundler-cache: true
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: bin/brakeman --no-pager
